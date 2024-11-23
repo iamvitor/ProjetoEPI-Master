@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Cadastrar usuário</title>
+
+        <!-- Adicione os links para os arquivos CSS do Bootstrap 5 -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    </head>
+    <body>
+
+            <!-- inicio Formulário de cadastro -->
+            <div class="container mt-5">
+             <div class="row justify-content-center">
+                 <div class="col-md-6">
+                     <div class="card">
+                         <div class="card-header">
+
+                         </div>
+                         <div class="card-body">
+                            <form th:method="post" th:action="@{/usuario}" th:object="${usuarioDto}">
+                                <div class="form-group">
+                                     <label for="senha">Nome</label>
+                                     <input type="text" id="nome" th:field="*{nome}" class="form-control form-control-lg" required/>
+                                 </div>
+                                <div class="form-group">
+                                     <label for="email">E-mail</label>
+                                     <input type="email" id="email" th:field="*{email}" class="form-control form-control-lg" required/>
+                                 </div>
+                                <div class="mb-3">
+                                    <label for="senha" class="form-label">Senha</label>
+                                    <input type="password" class="form-control" id="senha" name="senha" placeholder="Digite sua senha" required minlength="5">
+                                    <div class="form-text">A senha deve conter no minimo 5 caracteres.</div>
+                                    <div class="invalid-feedback">A senha deve ter pelo menos 5 caracteres.</div>
+                                </div>
+
+                                 <div class="pt-1 mb-4">
+                                     <input type="submit" value="Cadastrar" class="btn btn-secondary">
+
+
+                                 </div>
+
+
+
+
+
+                            </form>
+
+                             <!-- url passando parametro -> "localhost:8080/cadastrarusuario?erro"  -->
+                             <div th:if="${param.erro}" class="alert alert-danger" role="alert">
+                                 <span class="mensagem">E-mail ja está em uso.</span>
+                             </div>
+
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+
+
+   </body>
+</html>

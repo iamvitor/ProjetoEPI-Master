@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Sucesso</title>
+    <style>
+        /* Estilo para centralizar a imagem e o botão */
+        body {
+            display: flex;
+            justify-content: center; /* Centraliza horizontalmente */
+            align-items: center; /* Centraliza verticalmente */
+            height: 100vh; /* Altura total da tela */
+            margin: 0;
+            background-color: #f0f0f0; /* Cor de fundo */
+        }
+        img {
+            max-width: 300px; /* Limita a largura da imagem */
+            height: auto; /* Mantém a proporção */
+        }
+        .container {
+            text-align: center;
+        }
+        .btn {
+            margin-top: 20px;
+            font-size: 16px;
+            background: none; /* Remove o fundo */
+            color: gray; /* Cor do texto em cinza */
+            border: none; /* Remove a borda */
+            text-decoration: underline; /* Sublinhado */
+            cursor: pointer;
+        }
+        .btn:hover {
+            color: black; /* Altera a cor para preto ao passar o mouse */
+        }
+    </style>
+    <script>
+        // Função para enviar mensagem à página principal para fechar o modal e atualizar
+        function fecharModal() {
+            console.log('Enviando mensagem para fechar o modal...'); // Debugging
+            window.parent.postMessage('fechar-modal', '*');
+        }
+    </script>
+</head>
+<body>
+<div class="container">
+    <!-- Imagem de sucesso -->
+    <img src="/sucesso.png" alt="Imagem de Sucesso">
+    <!-- Botão Fechar -->
+    <br>
+    <button class="btn" onclick="fecharModal()">Fechar</button>
+</div>
+</body>
+</html>
